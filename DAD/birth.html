@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <script src="menu.js"></script>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <div w3-include-html="menu.html"></div>
+    <script>w3.includeHTML();</script> 
+
+    <div>
+        <input type="text" id="surnameInput" placeholder="Surname" onkeyup="updateSurname()">
+        <input type="text" id="nameInput" placeholder="Name" onkeyup="updateName()">
+        <select id="relationTypeInput" onchange="updateRelationType()">
+            <option value="W/o">W/o</option>
+            <option value="W/o">W/o</option>
+            <option value="H/o">H/o</option>
+        </select>
+        <input type="text" id="relationNameInput" placeholder="Relation Name" onkeyup="updateRelationName()">
+        <input type="text" id="H_NOInput" placeholder="H_NO" onkeyup="updateH_NO()">
+        <input type="text" id="AddressInput" placeholder="Address" onkeyup="updateAddress()">
+        <input type="text" id="Date_Of_BirthInput" placeholder="Date Of Birth" onkeyup="updateDateOfBirth()">
+        <select id="relationInput" onchange="updateRelation()">
+            <option value="Son">Son</option>
+            <option value="Son">Son</option>
+            <option value="Daughter">Daughter</option>
+        </select>
+        <input type="text" id="childrenNameInput" placeholder="childrenName" onkeyup="updatechildrenName()">
+        <input type="text" id="hospitalNameInput" placeholder="Hospital Name" onkeyup="updateHospitalName()">
+        <input type="text" id="DD_MM_YYInput" placeholder="DD_MM_YY" onkeyup="updateDDMMYY()">
+        <input type="text" id="parentsNameInput" placeholder="Parents Name" onkeyup="updateParentsName()">
+    </div>
+
+    <h3>
+        <style>
+            @media print {
+                input[type="text"], select {
+                    display: none;
+                }
+                div.printable {
+                    display: block;
+                }
+            }
+            h1 {text-align: center;}
+            p {text-align: left;}
+            div {text-align: right;}
+        </style>
+        <h1><b>A F F I D A V I T </b></h1>
+        I, <b><span id="surname">---</span> <span id="Name">---</span>, <span id="relationType">---</span> <span id="relationName">---</span>, R/o.<span id="H_NO">---</span>, <span id="Address">---</span></b> hereby solemnly affirm and confirm with good state of mind and do hereby declare on oath as follows:-
+        I am the deponent herein as such I am well acquainted with the facts.
+        <br><br>
+        It is submitted that my <span id="relation">s/o</span> <b><span id="childrenName">---</span> <span id="childRelationType"></span> <span id="relationName">---</span></b>, was born on <b><span id="Date_Of_Birth">---</span></b> at<b> <span id="hospitalName">---</span> Hospital Nalgonda</b>, due to ignorance of law I did not enroll my Son's date of birth neither in the Municipality nor anywhere.<br>
+        Hence the Honorable Municipal Commissioner, Nalgonda had the ample power to accept my condonation delay affidavit and ordered to issue the date of birth certificate to my <span id="relation">s/o</span> in the interest of justice.<br>
+        The above facts are true to the best of my knowledge and belief if otherwise I will be prosecuted by law.
+        <br>
+        <div> Deponent</div>
+        <p>Place: Nalgonda,</p>
+        <p>Date: <span class="DD_MM_YY">---</span></p>
+        <div><b>(<span id="parentsName">---</span>)</b></div>
+        Sworn and signed before me at Nalgonda on <span class="DD_MM_YY">---</span>.
+    </h3>
+
+    <script>
+        function updateSurname() {
+            var surnameValue = document.getElementById("surnameInput").value;
+            document.getElementById("surname").innerText = surnameValue;
+        }
+
+        function updateName() {
+            var nameValue = document.getElementById("nameInput").value;
+            document.getElementById("Name").innerText = nameValue;
+        }
+
+        function updateRelationType() {
+            var relationTypeValue = document.getElementById("relationTypeInput").value;
+            document.getElementById("relationType").innerText = relationTypeValue;
+            var childRelationTypeValue = relationTypeValue === "W/o" ? "d/o" : "s/o";
+            var childRelationTypeElements = document.querySelectorAll("#childRelationType");
+            childRelationTypeElements.forEach(function(element) {
+                element.innerText = childRelationTypeValue;
+            });
+        }
+
+        function updateRelationName() {
+            var relationNameValue = document.getElementById("relationNameInput").value;
+            document.getElementById("relationName").innerText = relationNameValue;
+            var relationNameElements = document.querySelectorAll("#relationName");
+            relationNameElements.forEach(function(element) {
+                element.innerText = relationNameValue;
+            });
+        }
+
+        function updateH_NO() {
+            var H_NOvalue = document.getElementById("H_NOInput").value;
+            document.getElementById("H_NO").innerText = H_NOvalue;
+        }
+
+        function updateAddress() {
+            var Addressvalue = document.getElementById("AddressInput").value;
+            document.getElementById("Address").innerText = Addressvalue;
+        }
+
+        function updateDateOfBirth() {
+            var dateOfBirthValue = document.getElementById("Date_Of_BirthInput").value;
+            document.getElementById("Date_Of_Birth").innerText = dateOfBirthValue;
+        }
+
+        function updateRelation() {
+            var relationValue = document.getElementById("relationInput").value;
+            document.getElementById("relation").innerText = relationValue;
+        }
+        function updatechildrenName(){
+            var childrenNameValue = document.getElementById("childrenNameInput").value;
+            document.getElementById("childrenName").innerText = childrenNameValue;
+        }
+
+        function updateHospitalName() {
+            var hospitalNameValue = document.getElementById("hospitalNameInput").value;
+            document.getElementById("hospitalName").innerText = hospitalNameValue;
+        }
+
+        function updateDDMMYY() {
+            var DD_MM_YYvalue = document.getElementById("DD_MM_YYInput").value;
+            var elements = document.getElementsByClassName("DD_MM_YY");
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].innerText = DD_MM_YYvalue;
+            }
+        }
+
+        function updateParentsName() {
+            var parentsNameValue = document.getElementById("parentsNameInput").value;
+            document.getElementById("parentsName").innerText = parentsNameValue;
+        }
+    </script>
+</body>
+</html>

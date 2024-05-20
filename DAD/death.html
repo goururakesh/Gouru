@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="menu.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @media print {
+            input[type="text"], select {
+                display: none;
+            }
+            div.printable {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <style>
+        h1 {text-align: center;}
+        p{text-align: left;}
+        p{text-align: left;}
+        div{text-align: right;}
+        
+    </style>
+    <div w3-include-html="menu.html"></div>
+    <script>includeHTML();</script>
+
+    <div>
+        <input type="text" id="surnameInput" placeholder="Surname" onkeyup="updateSurname()">
+        <input type="text" id="nameInput" placeholder="Name" onkeyup="updateName()">
+        <select id="relationTypeInput" onchange="updateRelationType()">
+            <option value="W/o">W/o</option>
+            <option value="W/o">W/o</option>
+            <option value="H/o">H/o</option>
+        </select>
+        <input type="text" id="relationNameInput" placeholder="Relation Name" onkeyup="updateRelationName()">
+        <input type="text" id="H_NOInput" placeholder="H_NO" onkeyup="updateH_NO()">
+        <input type="text" id="AddressInput" placeholder="Address" onkeyup="updateAddress()">
+        <select id="relationInput" onchange="updateRelation()">
+            <option value="Son">Son</option>
+            <option value="Husband">Husband</option>
+            <option value="Wife">Wife</option>
+            <option value="Daughter">Daughter</option>
+        </select>
+        <select id="parentTypeInput" onchange="updateParentType()">
+            <option value="s/o">S/o</option>
+            <option value="s/o">S/o</option>
+            <option value="d/o">D/o</option>
+        </select>
+        <input type="text" id="parentNameInput" placeholder="Parent Name" onkeyup="updateParentName()">
+        <input type="text" id="Date_Of_DeathInput" placeholder="Date Of Death" onkeyup="updateDateOfDeath()">
+        <input type="text" id="deathPlaceInput" placeholder="deathPlace" onkeyup="updatedeathPlace()">
+        <input type="text" id="DD_MM_YYInput" placeholder="DD_MM_YY" onkeyup="updateDD_MM_YY()">
+    </div>
+
+    <h3>
+        <h1>A F F I D A V I T</h1>
+
+        I, <b><span id="surnameSpan">---</span> <span id="nameSpan">---</span>, <span id="relationTypeSpan">---</span> Late <span id="relationNameSpan">---</span> R/o <span id="H_NO">---</span>, <span id="addressSpan">---</span></b>, Hereby solemnly affirm and confirm with a good state of mind and do hereby declare on oath as follows:<br><br>
+        I am the deponent herein as such I am well acquainted with the facts.<br><br>
+        It is submitted that my<b> <span id="relationSpan">---</span>, <span id="parentTypeSpan">---</span> <span id="parentNameSpan">---</span> </b>was died on <b><span id="dateOfDeathSpan">---</span> at <span id="deathPlaceSpan">---</span> Nalgonda</b>, due to Ignorance of law I am not enrolled my Husband death neither in or nor in anywhere.<br><br>
+        Hence the Honorable The <b>Commissioner Municipality, Nalgonda </b>had got the ample Power to accept my Condonation delay affidavit and ordered to issue a death certificate to my Husband to me in the interest of justice.<br>
+        The above facts are true to the best of my knowledge and belief if otherwise I will be prosecuted by law.<br>
+        
+        <div>Deponent</div>
+        <p>Place: Nalgonda,</p>
+        <p>Date: <span id="DD_MM_YYSpan">---</span></p>
+        <div><b>(<span id="surnameSpan2">---</span> <span id="nameSpan2">---</span>)</b></div>
+        Sworn and signed before me at Nalgonda On <span id="DD_MM_YYSpan2">---</span>.
+    </h3>
+
+    <script>
+        function updateSurname() {
+            var surnameValue = document.getElementById("surnameInput").value;
+            document.getElementById("surnameSpan").innerText = surnameValue;
+            document.getElementById("surnameSpan2").innerText = surnameValue;
+        }
+
+        function updateName() {
+            var nameValue = document.getElementById("nameInput").value;
+            document.getElementById("nameSpan").innerText = nameValue;
+            document.getElementById("nameSpan2").innerText = nameValue;
+        }
+
+        function updateRelationType() {
+            var relationTypeValue = document.getElementById("relationTypeInput").value;
+            document.getElementById("relationTypeSpan").innerText = relationTypeValue;
+            var childRelationTypeValue = relationTypeValue === "W/o" ? "d/o" : "s/o";
+            document.getElementById("parentTypeSpan").innerText = childRelationTypeValue;
+        }
+
+        function updateRelationName() {
+            var relationNameValue = document.getElementById("relationNameInput").value;
+            document.getElementById("relationNameSpan").innerText = relationNameValue;
+        }
+
+        function updateH_NO() {
+            var H_NOvalue = document.getElementById("H_NOInput").value;
+            document.getElementById("H_NO").innerText = H_NOvalue;
+        }
+
+        function updateAddress() {
+            var addressValue = document.getElementById("AddressInput").value;
+            document.getElementById("addressSpan").innerText = addressValue;
+        }
+
+        function updateRelation() {
+            var relationValue = document.getElementById("relationInput").value;
+            document.getElementById("relationSpan").innerText = relationValue;
+        }
+
+        function updateParentType() {
+            var parentTypeValue = document.getElementById("parentTypeInput").value;
+            document.getElementById("parentTypeSpan").innerText = parentTypeValue;
+        }
+
+        function updateParentName() {
+            var parentNameValue = document.getElementById("parentNameInput").value;
+            document.getElementById("parentNameSpan").innerText = parentNameValue;
+        }
+
+        function updateDateOfDeath() {
+            var dateOfDeathValue = document.getElementById("Date_Of_DeathInput").value;
+            document.getElementById("dateOfDeathSpan").innerText = dateOfDeathValue;
+        }
+        function updatedeathPlace(){
+            var deathPlacevalue = document.getElementById("deathPlaceInput").value;
+            document.getElementById("deathPlaceSpan").innerText = deathPlacevalue;
+        }
+
+        function updateDD_MM_YY() {
+            var DD_MM_YYvalue = document.getElementById("DD_MM_YYInput").value;
+            document.getElementById("DD_MM_YYSpan").innerText = DD_MM_YYvalue;
+            document.getElementById("DD_MM_YYSpan2").innerText = DD_MM_YYvalue;
+        }
+    </script>
+</body>
+</html>

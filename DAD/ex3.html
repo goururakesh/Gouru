@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Content Binding</title>
+    <script src="menu.js"></script>
+    <style>
+        @media print {
+            input[type="text"] {
+                display: none;
+            }
+            div.printable {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div w3-include-html="menu.html"></div>
+    <script>includeHTML();</script>
+
+    <div>
+        <input type="text" id="surnameInput"  placeholder="surname" onkeyup="updateSurname()">
+        <input type="text" id="nameInput"  placeholder="Name" onkeyup="updateName()">
+        <input type="text" id="Date_Of_BirthInput"  placeholder="Date_Of_Birth" onkeyup="updateDate_Of_Birth()">
+        <input type="text" id="relationNameInput" placeholder="relationName" onkeyup="updaterelationName()">
+        <input type="text" id="H_NO" placeholder="H_NO" onkeyup="updateH_NO()">
+        <input type="text" id="casteInput" placeholder="caste" onkeyup="caste()">
+    </div> 
+    <h1><b>A F F I D A V I T</b></h1>
+    <p>
+        I, <b><div id="surname">---</div> <div id="Name">---</div>,<div id="relationName">---</div> <div id="H_NO">---</div></b> , do hereby solemnly affirm and sincerely state on oath as follows:
+    </p>
+    <p>
+        I am the deponent, I was born on <b>><div id="Date_Of_Birth">---</div></b> in the <b>“<div id="subCaste">---</div>” <div id="Caste">---</div></b> caste as per my records. My parents and grandfather were also born in the <b>“YADAV” (BC-D)</b> caste as per their records.
+    </p>
+    <p><b>Hence, I belong to the “YADAV” (BC-D) caste. <br>Now, I am in need of my Caste Certificate.</b></p>
+    <p>
+        The Hon’ble <b>Tahsildar, Nalgonda</b> has the ample power to issue the caste certificate in my favor and record the same.
+    </p>
+    <p>
+        Hence, I request the Hon’ble authorities to kindly issue my Caste Certificate and record the same. The above facts are true and correct to the best of my knowledge and belief.
+    </p>
+    <p>Place: Nalgonda,</p>
+    <p>Date: 15-06-2023</p>
+    <div>Deponent</div>
+    <u>Verification:</u>
+    <div><b>(PEDDABOINA YADAMMA)</b></div>
+    <p>Sworn and signed before me on this 15th day of June 2023 at Nalgonda.</p>
+    <h4>// NOTARY //</h4>
+    <script> 
+    function updateSurname(){
+        var surnameValue = document.getElementById("surnameInput").value;
+        document.getElementById("surname").innerText = surnameValue;
+    }
+    function updateName(){
+        var nameValue = document.getElementById("nameInput").value;
+        document.getElementById("Name").innerText = nameValue;
+    }
+    function updaterelationName(){
+        var relationName = document.getElementById("relationNameInput").value;
+        document.getElementById("relationNameValue").innerText = relationNameValue; 
+    }
+    function updateDate_Of_Birth(){
+        var Date_Of_Birthvalue = document.getElementById("Date_Of_BirthInput").value;
+        document.getElementById("Date_Of_Birth").innerText = Date_Of_Birthvalue;
+    }
+    function updateH_NO(){
+        var H_NO = document.getElementById("H_NOInput").value;
+        document.getElementById("H_NO").innerText = H_NOvalue;
+    }
+    function updatecaste(){
+        var caste = document.getElementById("casteInput").value;
+        document.getElementById("caste").innerText = castevalue;
+    }
+    </script>
+</body>
+</html>

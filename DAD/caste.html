@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="menu.js"></script>
+    <style>
+        @media print {
+            input[type="text"] {
+                display: none;
+            }
+            div.printable {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div w3-include-html="menu.html"></div>
+    <script>includeHTML();</script>
+
+    <div>
+        <input type="text" id="surnameInput" placeholder="Surname" onkeyup="updateSurname()">
+        <input type="text" id="nameInput" placeholder="Name" onkeyup="updateName()">
+        <input type="text" id="relationNameInput" placeholder="Relation Name" onkeyup="updateRelationName()">
+        <input type="text" id="H_NOInput" placeholder="H_NO" onkeyup="updateH_NO()">
+        <input type="text" id="AddressInput" placeholder="Address" onkeyup="updateAddress()">
+        <input type="text" id="Date_Of_BirthInput" placeholder="Date Of Birth" onkeyup="updateDateOfBirth()">
+        <input type="text" id="subCasteInput" placeholder="subCaste" onkeyup="updatesubCaste()">
+        <input type="text" id="casteInput" placeholder="Caste" onkeyup="updateCaste()">
+        <input type="text" id="verificationInput" placeholder="verification" onkeyup="updateverification()">
+        <input type="text" id="DD_MM_YYInput" placeholder="DD_MM_YY" onkeyup="updateDD_MM_YY()">
+    </div>
+
+    <style>
+        h1 {text-align: center;}
+        p{text-align: left;}
+        p{text-align: left;}
+        div{text-align: right;}
+        p{text-align: left;}
+    </style>
+       
+    <h1><b>A F F I D A V I T</b></h1>
+    <p>
+        I, <b><span id="surname">---</span> <span id="Name">---</span>, <span id="relationName">---</span> R/o <span id="H_NO">---</span> , <span id="Address">---</span> </b>do hereby solemnly affirm and sincerely state on oath as follows:
+    </p>
+    <p>
+        I am the deponent, I was born on <b><span id="Date_Of_Birth">---</span></b> in the <b>“<span class="subCaste">---</span>” <span class="Caste">---</span></b> caste as per my records. My parents and grandfather were also born in the <b>“<span class="subCaste">---</span>” <span class="Caste">---</span></b> caste as per their records.
+    </p>
+    <p><b>Hence, I belong to the “<span class="subCaste">---</span>” <span class="Caste">---</span> caste. <br>Now, I am in need of my Caste Certificate.</b></p>
+    <p>
+        The Hon’ble <b>Tahsildar, Nalgonda</b> has the ample power to issue the caste certificate in my favor and record the same.
+    </p>
+    <p>
+        Hence, I request the Hon’ble authorities to kindly issue my Caste Certificate and record the same. The above facts are true and correct to the best of my knowledge and belief.
+    </p>
+    <p>Place: Nalgonda,</p>
+    <p>Date: <span class="DD_MM_YY">-----</span></p>
+    <div>Deponent</div>
+    <u>Verification:</u>
+    <b><div id="verification">---</div></b>
+    <p>Sworn and signed before me <span class="DD_MM_YY">-----</span> at Nalgonda.</p>
+
+
+    <script>
+    function updateSurname(){
+        var surnameValue = document.getElementById("surnameInput").value;
+        document.getElementById("surname").innerText = surnameValue;
+    }
+    function updateName(){
+        var nameValue = document.getElementById("nameInput").value;
+        document.getElementById("Name").innerText = nameValue;
+    }
+    function updateRelationName(){
+        var relationNameValue = document.getElementById("relationNameInput").value;
+        document.getElementById("relationName").innerText = relationNameValue;
+    }
+    function updateH_NO(){
+        var H_NOvalue = document.getElementById("H_NOInput").value;
+        document.getElementById("H_NO").innerText = H_NOvalue;
+    }
+    function updateAddress(){
+        var Addressvalue = document.getElementById("AddressInput").value;
+        document.getElementById("Address").innerText = Addressvalue;
+    }
+    function updateDateOfBirth(){
+        var dateOfBirthValue = document.getElementById("Date_Of_BirthInput").value;
+        document.getElementById("Date_Of_Birth").innerText = dateOfBirthValue;
+    }
+    function updatesubCaste(){
+        var subCastevalue = document.getElementById("subCasteInput").value;
+        var elements = document.getElementsByClassName("subCaste");
+        for(var i = 0; i < elements.length; i++) {
+            elements[i].innerText = subCastevalue;
+        }
+    }
+    function updateCaste(){
+        var casteValue = document.getElementById("casteInput").value;
+        var elements = document.getElementsByClassName("Caste");
+        for(var i = 0; i < elements.length; i++) {
+            elements[i].innerText = casteValue;
+        }
+    }
+    function updateverification(){
+        var verificationvalue = document.getElementById("verificationInput").value;
+        document.getElementById("verification").innerText = verificationvalue;
+    }
+    function updateDD_MM_YY(){
+        var DD_MM_YYvalue = document.getElementById("DD_MM_YYInput").value;
+        var elements = document.getElementsByClassName("DD_MM_YY");
+        for(var i=0; i<elements.length; i++){
+            elements[i].innerText = DD_MM_YYvalue;
+        }
+    }
+    </script>
+</body>
+</html>

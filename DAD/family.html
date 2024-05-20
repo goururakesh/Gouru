@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="menu.js"></script>
+    <style>
+        @media print {
+            input[type="text"], select, button {
+                display: none;
+            }
+            div.printable {
+                display: block;
+            }
+        }
+
+        h1 { text-align: center; }
+        p { text-align: left; }
+        div { text-align: right; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div w3-include-html="menu.html"></div> 
+    <script>includeHTML();</script>
+
+    <script src="script.js"></script>
+    <input type="text" id="surnameInput" placeholder="Surname" onkeyup="updateSurname()">
+    <input type="text" id="nameInput" placeholder="Name" onkeyup="updateName()">
+    <select id="relationTypeInput" onchange="updateRelationType()">
+        <option value="W/o">W/o</option>
+        <option value="W/o">W/o</option>
+        <option value="H/o">H/o</option>
+    </select>
+    <input type="text" id="relationNameInput" placeholder="Relation Name" onkeyup="updateRelationName()">
+    <input type="text" id="H_NOInput" placeholder="H_NO" onkeyup="updateH_NO()">
+    <input type="text" id="AddressInput" placeholder="Address" onkeyup="updateAddress()">
+    <select id="relationInput" onchange="updateRelation()">
+        <option value="Son">Son</option>
+        <option value="Husband">Husband</option>
+        <option value="Wife">Wife</option>
+        <option value="Daughter">Daughter</option>
+    </select>
+    <select id="parentTypeInput" onchange="updateParentType()">
+        <option value="S/o">S/o</option>
+        <option value="S/o">S/o</option>
+        <option value="D/o">D/o</option>
+    </select>
+    <input type="text" id="parentNameInput" placeholder="Parent Name" onkeyup="updateParentName()">
+    <input type="text" id="Date_Of_DeathInput" placeholder="Date Of Death" onkeyup="updateDateOfDeath()">
+    <input type="text" id="deathPlaceInput" placeholder="Death Place" onkeyup="updateDeathPlace()">
+    <input type="text" id="DD_MM_YYInput" placeholder="DD_MM_YY" onkeyup="updateDD_MM_YY()">
+
+    <h1><b>A F F I D A V I T </b></h1>
+    <p>
+        I, <b><span id="surnameSpan">---</span> <span id="nameSpan">---</span>, <span id="relationTypeSpan">---</span> Late <span id="relationNameSpan">---</span> R/o <span id="H_NOSpan">---</span>, <span id="addressSpan">---</span></b> do hereby solemnly affirm and sincerely state on oath as follows :- <br>
+        I am the deponent here in therefore I know the facts: My <b><span id="relationSpan">---</span> <span id="relationNameSpan2">---</span>, <span id="parentTypeSpan">---</span> <span id="parentNameSpan">---</span></b> was expired on <b><span id="dateOfDeathSpan">---</span></b> at <b><span id="deathPlaceSpan">---</span></b>, leaving behind the following persons are his/her Family members.
+    </p>
+    
+    <div class="container">
+        <div class="row">
+            <input type="text" id="s_no-box" placeholder="S_no">
+            <input type="text" id="name-box" placeholder="Name">
+            <input type="text" id="AGE-box" placeholder="AGE">
+            <input type="text" id="Relation-box" placeholder="Relation">
+            <input type="text" id="Marriedunmarried-box" placeholder="Married/Unmarried">
+            <input type="text" id="Occupation-box" placeholder="Occupation">
+            <button onclick="addTask()">Add</button>
+        </div>
+        <table id="list-container">
+            <thead>
+                <tr>
+                    <th>S_NO</th>
+                    <th>NAME</th>
+                    <th>AGE</th>
+                    <th>RELATION</th>
+                    <th>MARRIED/UNMARRIED</th>
+                    <th>OCCUPATION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be added here dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <p>
+        The Hon’ble Thahasildar, Nalgonda has got ample powers to issue the Family Member certificate and other benefits to receive of my deceased Husband. The above facts are true and correct to the best of my knowledge and belief.
+    </p>
+    <p>Place: Nalgonda,</p>
+    <p>Date: <span id="DD_MM_YYSpan">---</span>.</p>
+    <div>Deponent</div>
+    <br>
+    <div><b>(<span id="surnameSpan2">---</span> <span id="nameSpan2">---</span>)</b></div>
+    <p>Sworn and signed before me on this <span id="DD_MM_YYSpan2">---</span> at Nalgonda</p>
+
+    <script>
+        function updateSurname() {
+            const surname = document.getElementById('surnameInput').value;
+            document.getElementById('surnameSpan').textContent = surname;
+            document.getElementById('surnameSpan2').textContent = surname;
+        }
+
+        function updateName() {
+            const name = document.getElementById('nameInput').value;
+            document.getElementById('nameSpan').textContent = name;
+            document.getElementById('nameSpan2').textContent = name;
+        }
+
+        function updateRelationType() {
+            const relationType = document.getElementById('relationTypeInput').value;
+            document.getElementById('relationTypeSpan').textContent = relationType;
+        }
+
+        function updateRelationName() {
+            const relationName = document.getElementById('relationNameInput').value;
+            document.getElementById('relationNameSpan').textContent = relationName;
+            document.getElementById('relationNameSpan2').textContent = relationName;
+        }
+
+        function updateH_NO() {
+            const H_NO = document.getElementById('H_NOInput').value;
+            document.getElementById('H_NOSpan').textContent = H_NO;
+        }
+
+        function updateAddress() {
+            const address = document.getElementById('AddressInput').value;
+            document.getElementById('addressSpan').textContent = address;
+        }
+
+        function updateRelation() {
+            const relation = document.getElementById('relationInput').value;
+            document.getElementById('relationSpan').textContent = relation;
+        }
+
+        function updateParentType() {
+            const parentType = document.getElementById('parentTypeInput').value;
+            document.getElementById('parentTypeSpan').textContent = parentType;
+        }
+
+        function updateParentName() {
+            const parentName = document.getElementById('parentNameInput').value;
+            document.getElementById('parentNameSpan').textContent = parentName;
+        }
+
+        function updateDateOfDeath() {
+            const dateOfDeath = document.getElementById('Date_Of_DeathInput').value;
+            document.getElementById('dateOfDeathSpan').textContent = dateOfDeath;
+        }
+
+        function updateDeathPlace() {
+            const deathPlace = document.getElementById('deathPlaceInput').value;
+            document.getElementById('deathPlaceSpan').textContent = deathPlace;
+        }
+
+        function updateDD_MM_YY() {
+            const dd_mm_yy = document.getElementById('DD_MM_YYInput').value;
+            document.getElementById('DD_MM_YYSpan').textContent = dd_mm_yy;
+            document.getElementById('DD_MM_YYSpan2').textContent = dd_mm_yy;
+        }
+
+        function addTask() {
+            const s_no = document.getElementById('s_no-box').value;
+            const name = document.getElementById('name-box').value;
+            const AGE = document.getElementById('AGE-box').value;
+            const Relation = document.getElementById('Relation-box').value;
+            const Marriedunmarried = document.getElementById('Marriedunmarried-box').value;
+            const Occupation = document.getElementById('Occupation-box').value;
+
+            if (!s_no || !name || !AGE || !Relation || !Marriedunmarried || !Occupation) {
+                alert("Please fill all fields.");
+                return;
+            }
+
+            const table = document.getElementById('list-container').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+
+            const cell1 = newRow.insertCell(0);
+            const cell2 = newRow.insertCell(1);
+            const cell3 = newRow.insertCell(2);
+            const cell4 = newRow.insertCell(3);
+            const cell5 = newRow.insertCell(4);
+            const cell6 = newRow.insertCell(5);
+
+            cell1.textContent = s_no;
+            cell2.textContent = name;
+            cell3.textContent = AGE;
+            cell4.textContent = Relation;
+            cell5.textContent = Marriedunmarried;
+            cell6.textContent = Occupation;
+
+            // Clear the input fields after adding the task
+            document.getElementById('s_no-box').value = '';
+            document.getElementById('name-box').value = '';
+            document.getElementById('AGE-box').value = '';
+            document.getElementById('Relation-box').value = '';
+            document.getElementById('Marriedunmarried-box').value = '';
+            document.getElementById('Occupation-box').value = '';
+        }
+    </script>
+</body>
+</html>
